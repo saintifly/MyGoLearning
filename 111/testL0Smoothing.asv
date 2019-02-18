@@ -1,0 +1,9 @@
+Im = imread('rain.jpg');
+Ip= L0Smoothing(Im,Im,0.05);
+
+ h = [diff(Ip,1,2), Ip(:,1,:) - Ip(:,end,:)];
+ v = [diff(Ip,1,1); Ip(1,:,:) - Ip(end,:,:)];
+Ip=h.^2+v.^;
+ 
+S = L0Smoothing(Im,Ip,0.1);
+figure, imshow(S);
